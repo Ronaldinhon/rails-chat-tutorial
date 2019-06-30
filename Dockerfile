@@ -19,4 +19,6 @@ COPY . .
 
 ENV RAILS_ENV production
 
-ENTRYPOINT ./entrypoint.sh
+RUN bundle exec rake assets:precompile
+
+CMD bundle exec rails server
