@@ -17,7 +17,8 @@ RUN npm install yarn -g
 
 COPY . .
 
-ENV RAILS_ENV production
+ENV RAILS_ENV production 
+ENV SECRET_KEY_BASE production_test_key rails c
 
 RUN bundle exec rake assets:precompile
 
