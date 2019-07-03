@@ -12,9 +12,12 @@
       <% @room_messages.each do |room_message| %>
         <div class="chat-message-container">
           <div class="row no-gutters">
-            <div class="col-auto text-center">
-              <img src="<%= room_message.user.gravatar_url %>" class="avatar" alt="">
-            </div>
+
+            <% if room_message.user_id == 2 %>
+              <div class="col-auto text-center">
+                <img src="<%= room_message.user.gravatar_url %>" class="avatar" alt="">
+              </div>
+            <% end %>
 
             <div class="col">
               <div class="message-content">
@@ -29,6 +32,13 @@
                 </div>
               </div>
             </div>
+
+            <% if room_message.user_id != 2 %>
+              <div class="col-auto text-center">
+                <img src="<%= room_message.user.gravatar_url %>" class="avatar" alt="">
+              </div>
+            <% end %>
+
           </div>
         </div>
       <% end %>
@@ -56,7 +66,8 @@
 <div class="d-none" data-role="message-template">
   <div class="chat-message-container">
     <div class="row no-gutters">
-      <div class="col-auto text-center">
+
+      <div class="col-auto text-center pt" style="display: none;">
         <img src="" class="avatar" alt="" data-role="user-avatar">
       </div>
 
@@ -72,6 +83,32 @@
           </div>
         </div>
       </div>
+
+      <div class="col-auto text-center dr" style="display: none;">
+        <img src="" class="avatar" alt="" data-role="user-avatar">
+      </div>
+
     </div>
+    <span class="buttons" style="display: none;">
+      <button style="margin: 3px;" type="button" data-typeId="Yes/">Yes</button>
+      <button type="button" data-typeId="No/">No</button>
+      <button type="button" data-typeId="Hello/">Hello</button>
+      <button type="button" data-typeId="Goodbye/">Goodbye</button>
+      <button type="button" data-typeId="Introduction/">Introduction</button>
+      <button type="button" data-typeId="Patient_details/">Patient_details</button>
+      <button type="button" data-typeId="Ask_profession/">Ask_profession</button>
+      <button type="button" data-typeId="Purpose_of_visit/">Purpose_of_visit</button>
+      <button type="button" data-typeId="Open_ended_question/">Open_ended_question</button>
+      <button type="button" data-typeId="Past_medical_hx/">Past_medical_hx</button>
+      <button type="button" data-typeId="Past_admission_hx/">Past_admission_hx</button>
+      <button type="button" data-typeId="Past_surgical_hx/">Past_surgical_hx</button>
+      <button type="button" data-typeId="Drug_hx/">Drug_hx</button>
+      <button type="button" data-typeId="Allergy/">Allergy</button>
+      <button type="button" data-typeId="Social_hx/">Social_hx</button>
+      <button type="button" data-typeId="Family_hx/">Family_hx</button>
+      <button type="button" data-typeId="Ask_idea/">Ask_idea</button>
+      <button type="button" data-typeId="Ask_concern/">Ask_concern</button>
+      <button type="button" data-typeId="Ask_expectation/">Ask_expectation</button>
+    </span>
   </div>
 </div>

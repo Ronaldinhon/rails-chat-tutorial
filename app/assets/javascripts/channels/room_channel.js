@@ -19,6 +19,12 @@ $(function() {
           content.find('[data-role="message-date"]').text(data.updated_at);
           $element.append(content);
           $element.animate({ scrollTop: $element.prop("scrollHeight")}, 1000);
+          if (data.user_id == 2) {
+            content.find('.pt').css('display', 'block');
+            content.find('.buttons').css('display', 'block');
+          } else {
+            content.find('.dr').css('display', 'block');
+          }
         }
       }
     );
